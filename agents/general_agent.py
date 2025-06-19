@@ -18,7 +18,7 @@ def general_agent(query: str) -> str:
     ]
 
     # For now, just return a placeholder message with a friendly tone
-    return f"Received your query: {random.choice(generic_responses)}"
+    return random.choice(generic_responses)"
 if __name__ == "__main__":
     mcp.run(
         transport="stdio"
