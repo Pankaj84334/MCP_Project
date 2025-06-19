@@ -40,14 +40,19 @@ async def main():
     #     "Whenever you invoke a tool, you must return its output EXACTLY COPYING every character. "
     #     "DO NOT Show thinking process, JUST RETURN THE OUTPUT AS IT IS."
     # )
+    query1="where is champawat?"
+    query2="what will be the weather of champawat in next 3 days?"
+    query3="what is the weather of champawat?"
+    query4="what is the value of (3+5)*8"
     messages = [
         # {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": "What is 8*(3+5)"},
+        {"role": "user", "content": query1},
     ]
     response = await agent.ainvoke({"messages": messages})
-    # tool_messages = [m for m in response['messages'] if isinstance(m, ToolMessage)]
-    # print("Tool used:")
-    # for tool in tool_messages:
-    #     print(tool.name)
+    tool_messages = [m for m in response['messages'] if isinstance(m, ToolMessage)]
+    print("Tool used:")
+    for tool in tool_messages:
+        print(tool.name)
+    print('\n')
     print(response['messages'][-1].content)
 asyncio.run(main())
