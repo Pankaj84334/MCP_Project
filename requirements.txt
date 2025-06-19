@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+fastmcp
+langchain
+openai
+langchain-mcp-adapters
+mcp
+langgraph
+langchain-groq
